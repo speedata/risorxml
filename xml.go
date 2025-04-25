@@ -26,8 +26,8 @@ func parse(ctx context.Context, args ...object.Object) object.Object {
 		if err != nil {
 			return object.NewError(err)
 		}
-		return &xmlDocument{
-			xmlDocument: d,
+		return &XMLDocument{
+			Value: d,
 		}
 	case "file":
 		var rFile *object.File
@@ -39,8 +39,8 @@ func parse(ctx context.Context, args ...object.Object) object.Object {
 		if err != nil {
 			return object.NewError(err)
 		}
-		return &xmlDocument{
-			xmlDocument: d,
+		return &XMLDocument{
+			Value: d,
 		}
 
 	default:
@@ -49,8 +49,8 @@ func parse(ctx context.Context, args ...object.Object) object.Object {
 }
 
 func newDocument(ctx context.Context, args ...object.Object) object.Object {
-	return &xmlDocument{
-		xmlDocument: &goxml.XMLDocument{},
+	return &XMLDocument{
+		Value: &goxml.XMLDocument{},
 	}
 }
 
